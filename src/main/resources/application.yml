@@ -1,0 +1,119 @@
+#server:
+#  port: 9091
+#
+#spring:
+#  application:
+#    name: camundapostgres
+#
+#  profiles:
+#    active: local
+#
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+#
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    url: jdbc:postgresql://localhost:5432/mydb
+#    username: postgres
+#    password: admin
+#
+#    hikari:
+#      jdbc-url: jdbc:postgresql://localhost:5432/mydb
+#      username: postgres
+#      password: admin
+#      driver-class-name: org.postgresql.Driver
+#      pool-name: CAMUNDA-HIKARI-POOL
+#      idle-timeout: 3000
+#      minimum-idle: 30
+#      maximum-pool-size: 10
+#      connection-timeout: 2000
+#      connection-test-query: select 1
+#      transaction-isolation: TRANSACTION_READ_COMMITTED
+#
+#camunda:
+#  bpm:
+#    enabled: true
+#
+#    admin-user:
+#      id: demo
+#      password: demo
+#      email: ufo@andromeda.com
+#      first-name: Andromeda
+#      last-name: Galaxy
+#
+#    database:
+#      schema-update: true
+#
+#    filter:
+#      create: All
+#
+#    authorization:
+#      enabled: true
+#
+#    history-level: full
+#
+#    auto-deployment-enabled: true
+#
+#    default-number-of-retries: 3
+#
+#    job-execution:
+#      enabled: true
+#
+##    webapp:
+##      application-path: /camundapostgres
+
+camunda:
+  admin-user:
+    id: demo
+    password: demo
+    email: ufo@andromeda.com
+    first-name: Andromeda
+    last-name: Galaxy
+  bpm:
+    database:
+      type: postgres
+    table-prefix: camunda.
+    schema-update: true
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    driverClassName: org.postgresql.Driver
+    #DB connection:
+    url: jdbc:postgresql://localhost:5432/mydb?stringtype=unspecified
+    username: postgres
+    password: admin
+
+
+feign:
+  client:
+    config:
+      processInstance:
+        url: "http://localhost:${server.port}/engine-rest/"
+      processDefinition:
+        url: "http://localhost:${server.port}/engine-rest/"
+      message:
+        url: "http://localhost:${server.port}/engine-rest/"
+      signal:
+        url: "http://localhost:${server.port}/engine-rest/"
+      execution:
+        url: "http://localhost:${server.port}/engine-rest/"
+      task:
+        url: "http://localhost:${server.port}/engine-rest/"
+      taskVariable:
+        url: "http://localhost:${server.port}/engine-rest/"
+      taskLocalVariable:
+        url: "http://localhost:${server.port}/engine-rest/"
+      taskIdentityLink:
+        url: "http://localhost:${server.port}/engine-rest/"
+      externalTask:
+        url: "http://localhost:${server.port}/engine-rest/"
+      incident:
+        url: "http://localhost:${server.port}/engine-rest/"
+      historicProcessInstance:
+        url: "http://localhost:${server.port}/engine-rest/"
