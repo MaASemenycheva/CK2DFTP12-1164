@@ -39,9 +39,25 @@ dependencies {
 	implementation("com.zaxxer:HikariCP:2.4.6")
 	implementation("com.github.seratch:kotliquery:1.1.1")
 	implementation("com.beust:klaxon:5.5")
+	implementation("com.h2database:h2")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.1")
-	testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+//	testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+//	testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+//	testImplementation ("org.junit.jupiter:junit-jupiter:5.6.0")
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.2")
+	testImplementation("org.camunda.bpm.extension:camunda-bpm-process-test-coverage:0.4.0")
+	testImplementation("org.camunda.bpm.extension:camunda-bpm-assert-scenario:1.0.0")
+
+
+//	implementation(junit5("api"))
+
+	implementation("org.camunda.bpm:camunda-engine:7.11.0")
+
+//	testRuntimeOnly(junit5("engine"))
+	testImplementation("com.h2database:h2:1.4.197")
+	testImplementation("ch.qos.logback:logback-classic:1.2.3")
 }
 
 tasks.withType<KotlinCompile> {
