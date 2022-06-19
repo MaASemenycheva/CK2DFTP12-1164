@@ -40,7 +40,6 @@ dependencies {
 	implementation("org.camunda.spin:camunda-spin-core:1.6.7")
 	implementation("org.camunda.bpm:camunda-engine-plugin-spin:7.10.0")
 	implementation("org.camunda.bpm.extension.springboot:camunda-bpm-spring-boot-starter-test:2.2.0")
-
 	implementation("com.zaxxer:HikariCP:2.4.6")
 	implementation("com.github.seratch:kotliquery:1.1.1")
 	implementation("com.beust:klaxon:5.5")

@@ -14,10 +14,10 @@ import kotlin.system.measureTimeMillis
 class ProcessDelegate : JavaDelegate {
     private val logger = LoggerFactory.getLogger(ProcessDelegate::class.java)
     private val processEngine: ProcessEngine? = null
-    private val PROCESS_KEY = "Process_027hatc"
+    private val PROCESS_KEY = "Process_select1" //"Process_027hatc"
     override fun execute(execution: DelegateExecution?) {
         var processes = JDBCRecord ()
-        val processesList = processes.startProcesses(10)
+        val processesList = processes.startProcesses(100)
         processesList.forEach { process ->
             logger.info("New_handled_process= " +
                     "message_uuid=${process.message_uuid}, " +

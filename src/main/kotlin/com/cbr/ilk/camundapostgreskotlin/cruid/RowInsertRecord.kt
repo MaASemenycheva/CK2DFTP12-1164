@@ -5,21 +5,16 @@ import java.sql.SQLException
 import java.time.LocalDateTime
 import java.util.*
 
-
 object RowInsertRecord {
     @JvmStatic
     fun main(args: Array<String>) {
-
         // auto close connection and statement
         try {
             DriverManager.getConnection(
                 "jdbc:postgresql://127.0.0.1:5432/test", "postgres", "admin"
             ).use { conn ->
                 conn.createStatement().use { statement ->
-//                    println(generateInsert("mkyong", BigDecimal(999.80)))
                     for(i in 1..100) {
-//                    val uuid = UUID.randomUUID()
-//                    val str = uuid.toString()
                     val row =
                         statement.executeUpdate(generateInsert(
                             UUID.fromString(UUID.randomUUID().toString()),
