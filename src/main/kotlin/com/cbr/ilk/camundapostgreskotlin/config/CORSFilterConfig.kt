@@ -8,23 +8,23 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 import org.springframework.web.filter.CorsFilter
 
 
-@Configuration
-class CORSFilterConfig {
-    @Bean
-    fun corsFilter(): CorsFilter {
-        val corsConfigurationSource = UrlBasedCorsConfigurationSource()
-        val corsConfiguration = CorsConfiguration()
-        corsConfiguration.allowCredentials = true
-        corsConfiguration.addAllowedHeader("*")
-        corsConfiguration.addAllowedOrigin("*")
-        corsConfiguration.addAllowedMethod(HttpMethod.GET)
-        corsConfiguration.addAllowedMethod(HttpMethod.POST)
-        corsConfiguration.addAllowedMethod(HttpMethod.OPTIONS)
-        corsConfiguration.addAllowedMethod(HttpMethod.PATCH)
-        corsConfiguration.addAllowedMethod(HttpMethod.PUT)
-        corsConfiguration.addAllowedMethod(HttpMethod.HEAD)
-        corsConfiguration.addAllowedMethod(HttpMethod.DELETE)
-        corsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration)
-        return CorsFilter(corsConfigurationSource)
-    }
-}
+//@Configuration
+//class CORSFilterConfig {
+//    @Bean
+//    fun corsFilter(): CorsFilter {
+//        val corsConfigurationSource = UrlBasedCorsConfigurationSource()
+//        val corsConfiguration = CorsConfiguration()
+//        corsConfiguration.allowCredentials = true
+//        corsConfiguration.addAllowedHeader("*")
+//        corsConfiguration.addAllowedOrigin("*")
+//        corsConfiguration.addAllowedMethod(HttpMethod.GET)
+//        corsConfiguration.addAllowedMethod(HttpMethod.POST)
+//        corsConfiguration.addAllowedMethod(HttpMethod.OPTIONS)
+//        corsConfiguration.addAllowedMethod(HttpMethod.PATCH)
+//        corsConfiguration.addAllowedMethod(HttpMethod.PUT)
+//        corsConfiguration.addAllowedMethod(HttpMethod.HEAD)
+//        corsConfiguration.addAllowedMethod(HttpMethod.DELETE)
+//        corsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration)
+//        return CorsFilter(corsConfigurationSource)
+//    }
+//}
